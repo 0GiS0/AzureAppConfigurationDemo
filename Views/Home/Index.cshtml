@@ -1,0 +1,68 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+
+<style>
+#welcome{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://live.staticflickr.com/1937/30715340707_d0696024c8_k.jpg);    
+}
+
+#home {  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://live.staticflickr.com/4544/27053562599_40e1815d95_k.jpg);
+}
+
+#about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(@Configuration["AppConfigurationDemo:Index:AboutImage"]);
+}
+
+#services {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://live.staticflickr.com/8159/7621350242_651e97333b_k.jpg);
+}
+
+#contact {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://live.staticflickr.com/4072/4528977836_c4acfcaf88_b.jpg);
+}
+</style>
+
+<div id="nav" class="nav">
+  <ul>
+    <li><a href="#home">@Configuration["AppConfigurationDemo:Index:HomeTitle"]</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+<div class="container">
+<feature name="WelcomeSection">
+    <div id="welcome" class="bg">
+     <div>
+        <h1>Hello World!</h1>
+        <span>Feature enabled</span>
+    </div>
+  </div>  
+ </feature>
+  <div id="home" class="bg">
+    <div>
+      <h1>@Configuration["AppConfigurationDemo:Index:HomeTitle"]</h1>
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    </div>
+  </div>
+  <div id="about" class="bg">
+    <div>
+      <h1>About the company</h1>
+      <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+    </div>
+  </div>
+  <div id="services" class="bg">
+    <div>
+      <h1>Services we do</h1>
+      <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+    </div>
+  </div>
+  <div id="contact" class="bg">
+    <div>
+      <h1>Contact us</h1>
+      <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+    </div>
+  </div>
+</div>
