@@ -25,7 +25,9 @@ namespace AppConfigurationDemo
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options =>
                {
-                   options.Connect(settings["ConnectionStrings:AppConfiguration"]).UseFeatureFlags().WatchAndReloadAll("Sentinel", TimeSpan.FromSeconds(5));
+                   options.Connect(settings["ConnectionStrings:AppConfiguration"])
+                   .UseFeatureFlags()
+                   .WatchAndReloadAll("Sentinel", TimeSpan.FromSeconds(5));
                });
             })
             .UseStartup<Startup>();
